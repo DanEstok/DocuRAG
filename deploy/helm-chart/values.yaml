@@ -1,0 +1,93 @@
+# Default values for docurag
+replicaCount: 3
+
+image:
+  repository: docurag-api
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+ingestImage:
+  repository: docurag-ingest
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  fsGroup: 2000
+
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  host: docurag.local
+  tls: []
+
+resources:
+  limits:
+    cpu: 2000m
+    memory: 4Gi
+  requests:
+    cpu: 500m
+    memory: 2Gi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# DocuRAG specific configuration
+config:
+  vectorStore: "faiss"
+  indexPath: "/app/index"
+  chunkSize: 1000
+  chunkOverlap: 100
+
+secrets:
+  openaiApiKey: ""
+
+persistence:
+  enabled: true
+  storageClass: ""
+  accessMode: ReadWriteMany
+  size: 10Gi
+
+ingestion:
+  enabled: true
+  schedule: "0 2 * * *"  # Daily at 2 AM
+  pdfDir: "/app/data"
+
+monitoring:
+  enabled: false
+  serviceMonitor:
+    enabled: false

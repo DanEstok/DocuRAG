@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  ingest:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.ingest
+    volumes:
+      - ../data:/app/data
+      - ../index:/app/index
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT:-production}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - VECTOR_STORE=${VECTOR_STORE:-faiss}
+      - USE_MOCK_LLM=${USE_MOCK_LLM:-false}
+    command: python src/ingest/build_index.py --pdf_dir ./data --out ./index --store ${VECTOR_STORE:-faiss}
+
+  inference:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.inference
+      args:
+        CUDA_VERSION: ${CUDA_VERSION:-}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - ../index:/app/index
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT:-production}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - VECTOR_STORE=${VECTOR_STORE:-faiss}
+      - USE_MOCK_LLM=${USE_MOCK_LLM:-false}
+      - INDEX_PATH=/app/index
+      - DEBUG=${DEBUG:-false}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      - ingest
+
+  # Development service with mock LLM
+  inference-dev:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.inference
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../index:/app/index
+      - ../data:/app/data
+    environment:
+      - ENVIRONMENT=development
+      - USE_MOCK_LLM=true
+      - VECTOR_STORE=faiss
+      - INDEX_PATH=/app/index
+      - DEBUG=true
+      - LOG_LEVEL=DEBUG
+    profiles:
+      - dev

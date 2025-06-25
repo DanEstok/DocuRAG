@@ -1,0 +1,38 @@
+# Core dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# LangChain and AI
+langchain==0.0.350
+langchain-openai==0.0.2
+openai==1.3.7
+
+# Vector stores
+faiss-cpu==1.7.4
+chromadb==0.4.18
+
+# Document processing
+pypdf==3.17.1
+tiktoken==0.5.2
+
+# HTTP client for benchmarking
+aiohttp==3.9.1
+httpx==0.25.2
+
+# Development and testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+ruff==0.1.6
+black==23.11.0
+isort==5.12.0
+mypy==1.7.1
+
+# PDF generation for test data
+reportlab==4.0.7
+numpy==1.24.4
+
+# Type stubs
+types-requests==2.31.0.10

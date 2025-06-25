@@ -1,0 +1,31 @@
+This is a sample document for testing purposes.
+
+Page 1 Content:
+This document contains sample text that will be used for testing the DocuRAG system.
+It includes multiple paragraphs and sections to simulate a real document.
+
+The main topic of this document is machine learning and artificial intelligence.
+Machine learning is a subset of artificial intelligence that enables computers to learn
+and make decisions from data without being explicitly programmed.
+
+Key concepts include:
+- Supervised learning
+- Unsupervised learning  
+- Reinforcement learning
+- Neural networks
+- Deep learning
+
+Page 2 Content:
+Applications of machine learning include:
+- Natural language processing
+- Computer vision
+- Recommendation systems
+- Fraud detection
+- Autonomous vehicles
+
+The field continues to evolve rapidly with new techniques and applications
+being developed regularly. This makes it an exciting area of study and research.
+
+Conclusion:
+Machine learning represents a significant advancement in computer science
+and has the potential to transform many industries and aspects of daily life.
