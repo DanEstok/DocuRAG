@@ -2,7 +2,7 @@
 
 A scalable document retrieval-augmented generation (RAG) system built with LangChain and FastAPI.
 
-[![CI](https://github.com/your-username/DocuRAG/workflows/CI/badge.svg)](https://github.com/your-username/DocuRAG/actions)
+[![CI](https://github.com/DanEstok/DocuRAG/workflows/CI/badge.svg)](https://github.com/DanEstok/DocuRAG/actions)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -34,7 +34,7 @@ Perfect for testing and development without OpenAI costs!
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/DocuRAG.git
+git clone https://github.com/DanEstok/DocuRAG.git
 cd DocuRAG
 
 # Install dependencies
@@ -278,7 +278,7 @@ graph TD
 
 ```bash
 # Clone and setup
-git clone https://github.com/your-username/DocuRAG.git
+git clone https://github.com/DanEstok/DocuRAG.git
 cd DocuRAG
 
 # Create virtual environment
@@ -423,9 +423,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 - 📖 [Documentation](docs/)
-- 🐛 [Issue Tracker](https://github.com/your-username/DocuRAG/issues)
-- 💬 [Discussions](https://github.com/your-username/DocuRAG/discussions)
-- 📧 Email: support@docurag.com
+- 🐛 [Issue Tracker](https://github.com/DanEstok/DocuRAG/issues)
+- 💬 [Discussions](https://github.com/DanEstok/DocuRAG/discussions)
+- 📧 Email: support@sparktechrepair.com
 
 ## Troubleshooting
 
